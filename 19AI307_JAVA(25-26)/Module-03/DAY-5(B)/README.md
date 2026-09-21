@@ -1,35 +1,28 @@
+
 # Ex.No:3(F) WRAPPER CLASS
 
 ## QUESTION:
-Write a Java program to check if a number is prime using wrapper classes. 
+Find the largest digit in a number using wrapper class methods.
 
 ## AIM:
-To write a Java program that checks whether a given number is prime by using the Integer wrapper class for parsing and handling the input.
+To write a Java program to find the largest digit in a given number using Wrapper Class methods.
 
 ## ALGORITHM :
-1. Read input from the user as a string.
-
-2. Use the Integer.parseInt() method (wrapper class) to convert the input into an integer.
-
-3. If parsing fails, catch NumberFormatException and display an error message.
-
-4. If the number is less than or equal to 1, it is not prime.
-
-5. If any divisor divides the number completely, mark it as not prime.
-
-6. After checking, print whether the number is prime or not.
-
-7. Close the scanner.
-
-
-
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Read the number from the user.
+4. Convert the number to a string using wrapper class Integer.toString().
+5. Traverse each character, convert it back to an integer using Character.getNumericValue().
+6. Compare digits and store the largest digit.
+7. Display the largest digit.
+8. Stop the program.
 
 ## PROGRAM:
  ```
 /*
-Program to implement a InnerClass using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Program to implement a Wrapper Class using Java
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
@@ -37,59 +30,34 @@ RegisterNumber: 212223240100
 ```
 import java.util.Scanner;
 
-public class PrimeChecker {
+public class LargestDigit {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine(); 
 
-        
-        String input = scanner.nextLine();
+        int largest = 0;
 
-        try {
-            Integer number = Integer.parseInt(input); // Using Integer wrapper class
-
-            if (number <= 1) {
-                System.out.println(number + " is not a prime number.");
-            } else {
-                boolean isPrime = true;
-                for (int i = 2; i <= Math.sqrt(number); i++) {
-                    if (number % i == 0) {
-                        isPrime = false;
-                        break;
-                    }
-                }
-
-                if (isPrime) {
-                    System.out.println(number + " is a prime number.");
-                } else {
-                    System.out.println(number + " is not a prime number.");
-                }
+        for (int i = 0; i < input.length(); i++) 
+        {
+            int digit = Character.getNumericValue(input.charAt(i));
+            if (digit > largest) {
+                largest = digit;
             }
-
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a valid integer.");
         }
 
-        scanner.close();
+        System.out.println("The largest digit is: " + largest);
+        sc.close();
     }
 }
 ```
 
 
 
-
-
-
 ## OUTPUT:
-<img width="893" height="258" alt="image" src="https://github.com/user-attachments/assets/2cfce946-0ad1-43c0-a0b9-9f1d4d27a34b" />
 
-
+![java36](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/81caee57fce6fff987403423e665ea8f13ba347d/19AI307_JAVA(25-26)/Module-03/DAY-5(B)/java36.png)
 
 ## RESULT:
-Therefore the program successfully checks if the input number is a prime using the Integer wrapper class.
-
-
-
-
-
+Thus, the program to find the largest digit in a number using Wrapper Class methods was successfully executed.
 
 
