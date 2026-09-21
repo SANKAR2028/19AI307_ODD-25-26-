@@ -1,47 +1,30 @@
+
 # Ex.No:3(D)    INTERFACE 
 
 ## QUESTION:
-You’re developing a multi-console gaming platform that supports different controllers. Each controller has its own way of mapping buttons for actions like Jump, Shoot, and Pause.
+Each judge uses different criteria to score fighters. Based on points, the judge will declare “WIN”, “LOSE” or “DRAW”.
 
-To unify this behavior, you're asked to design a system using Java Interfaces. The interface will standardize the controls, and each controller will implement them differently.
+LenientJudge: WIN if diff ≥ 5, DRAW if < 5
 
-Your Task:
-Create an interface GameController with methods:
-
-jump()
-shoot()
-pause()
-Implement three controller types:
-
-PlayBoxController
-XCubeController
-RetroFunController
-
+StrictJudge: WIN if diff ≥ 10, DRAW if < 10
 ## AIM:
-To design a unified controller system using Java Interfaces where different gaming consoles implement their own button mappings for actions like Jump, Shoot, and Pause.
+
 
 ## ALGORITHM :
-1. Define an interface GameController with methods :jump(),shoot(),pause()
-
-2. Create class PlayBoxController implementing the interface and defining console-specific button actions.
-
-3. Create class XCubeController implementing the interface with its own button mapping.
-
-4. Create class RetroFunController implementing the interface using classic button controls.
-
-5. Create one controller object at a time.
-
-6. Call the three methods (jump, shoot, pause) to demonstrate polymorphism.
-
-
-
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Create an interface Judge with an abstract method getResult(int fighter1, int fighter2).
+4. Create two classes LenientJudge and StrictJudge implementing the interface and applying different scoring criteria.
+5. Accept points scored by two fighters from the user.
+6. Accept judge type from the user and invoke the respective implementation.
+7. Display the result as WIN, LOSE, or DRAW.
+8.Stop the program.
 
 ## PROGRAM:
  ```
 /*
-Program to implement a Interface using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
@@ -49,98 +32,66 @@ RegisterNumber: 212223240100
 ```
 import java.util.*;
 
-interface GameController {
-    void jump();
-    void shoot();
-    void pause();
+interface Judge {
+    String decide(int p1, int p2);
 }
 
-class PlayBoxController implements GameController {
-    public void jump() {
-        System.out.println("PlayBox: Press X to Jump!");
-    }
-    public void shoot() {
-        System.out.println("PlayBox: Press R2 to Shoot!");
-    }
-    public void pause() {
-        System.out.println("PlayBox: Press Start to Pause.");
-    }
-}
-
-class XCubeController implements GameController {
-    public void jump() {
-        System.out.println("X-Cube: Press A to Jump!");
-    }
-    public void shoot() {
-        System.out.println("X-Cube: Press RT to Shoot!");
-    }
-    public void pause() {
-        System.out.println("X-Cube: Press Menu to Pause.");
+class LenientJudge implements Judge {
+    public String decide(int p1, int p2) {
+        int diff = Math.abs(p1 - p2);
+        if (p1 > p2 && diff >= 5)
+            return "WIN";
+        else if (p2 > p1 && diff >= 5)
+            return "LOSE";
+        else
+            return "DRAW";
     }
 }
 
-class RetroFunController implements GameController {
-    public void jump() {
-        System.out.println("RetroFun: Use Up Arrow to Jump!");
-    }
-    public void shoot() {
-        System.out.println("RetroFun: Press B to Shoot!");
-    }
-    public void pause() {
-        System.out.println("RetroFun: Press P to Pause.");
+class StrictJudge implements Judge {
+    public String decide(int p1, int p2) {
+        int diff = Math.abs(p1 - p2);
+        if (p1 > p2 && diff >= 10)
+            return "WIN";
+        else if (p2 > p1 && diff >= 10)
+            return "LOSE";
+        else
+            return "DRAW";
     }
 }
 
-public class GameInputSimulator {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String controllerType = sc.nextLine().toLowerCase();
-        String action = sc.nextLine().toLowerCase();
+        int p1 = sc.nextInt();
+        int p2 = sc.nextInt();
+        int judgeType = sc.nextInt();
 
-        GameController controller;
-
-        switch (controllerType) {
-            case "playbox":
-                controller = new PlayBoxController();
-                break;
-            case "xcube":
-                controller = new XCubeController();
-                break;
-            case "retro":
-                controller = new RetroFunController();
-                break;
-            default:
-                System.out.println("Unsupported controller!");
-                return;
+        Judge judge;
+        if (judgeType == 1)
+            judge = new LenientJudge();
+        else if (judgeType == 2)
+            judge = new StrictJudge();
+        else {
+            System.out.println("Invalid judge type");
+            return;
         }
 
-        switch (action) {
-            case "jump":
-                controller.jump();
-                break;
-            case "shoot":
-                controller.shoot();
-                break;
-            case "pause":
-                controller.pause();
-                break;
-            default:
-                System.out.println("Unknown action!");
-        }
+        System.out.println(judge.decide(p1, p2));
     }
 }
-
 ```
 
 
 
 
+
+
+
 ## OUTPUT:
-<img width="821" height="293" alt="image" src="https://github.com/user-attachments/assets/77adba3b-7948-47f4-a6ed-f87b7e0eb83b" />
+![java34](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/564ba08ef73efc7e73a0883948f623cfa5b0ee65/19AI307_JAVA(25-26)/Module-03/DAY-4/java34.png)
 
 
 ## RESULT:
-Therefore the program successfully unifies different gaming controllers using a common interface.
-
-
+Thus, the Java program demonstrating Interface implementation using different judging criteria was executed successfully.
 
