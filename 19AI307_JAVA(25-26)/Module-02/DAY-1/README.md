@@ -1,37 +1,35 @@
 # Ex.No:2(A) CLASS AND OBJECT
 
 ## QUESTION:
-Define a class Car with brand (String), color (String), and year (int). Create 2 different objects of Car  Assign values to attributes. Print the details of both cars.import java.util.Scanner;
+Create a class Person with attributes name and age. Write a method greet() that prints: Hello, my name is <name> and I am <age> years old.
+
+import java.util.Scanner;
+
+
 ## AIM:
-To define a class Car with attributes brand, color, and year; create two objects of the class; assign values to their attributes; and print the details of both cars.
+To write a Java program that demonstrates the concept of Class and Object using a Person class with attributes and a method.
+
 
 ## ALGORITHM :
-1. Define a class Car with three data members:
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Create a class named Person with attributes name and age.
+4. Define a method greet() that prints the message using the attributes.
+5. In the main() method, create an object of the Person class.
+6. Read the name and age values from the user.
+7. Call the greet() method using the object.
+8. End the program.
 
-     String brand
-     String color
-     int year
- and a method printDetails() to display these values.
 
-2. In the main() method, create a Scanner object to read user inputs.
 
-3. Create the first object car1 and read its brand, color, and year from the user.
-
-4. Create the second object car2 and read its brand, color, and year.
-
-5. Call printDetails() for car1 to display its information.
-
-6. Call printDetails() for car2 to display its information.
-
-7.Close the scanner and end the program.
 
 
 ## PROGRAM:
  ```
 /*
 Program to implement a Class and Objects using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
@@ -39,50 +37,46 @@ RegisterNumber: 212223240100
 ```
 import java.util.Scanner;
 
-class Car {
-    String brand;
-    String color;
-    int year;
-
-    void printDetails() {
-        System.out.println("Brand: " + brand);
-        System.out.println("Color: " + color);
-        System.out.println("Year: " + year);
-    }
-}
-
 class prog {
+    String name;
+    int age;
+
+    prog(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void greet() 
+    {
+        System.out.println("Hello, my name is " + name + " and I am " + age + " years old.");
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+       
+        String name = scanner.nextLine(); 
+        int age = scanner.nextInt();      
 
-        
-        Car car1 = new Car();
-        car1.brand = scanner.nextLine();
-        car1.color = scanner.nextLine();
-        car1.year = scanner.nextInt();
-        scanner.nextLine();
+        prog person = new prog(name, age); 
+        person.greet(); 
 
-        
-        Car car2 = new Car();
-        car2.brand = scanner.nextLine();
-        car2.color = scanner.nextLine();
-        car2.year = scanner.nextInt();
-
-        car1.printDetails();
-        car2.printDetails();
-
-        scanner.close();
     }
+
+
 }
+
 ```
 
 
+
+
+
 ## OUTPUT:
-<img width="597" height="685" alt="image" src="https://github.com/user-attachments/assets/05ebe553-f279-4f17-b125-675b4afd47bd" />
+
+![Screenshot 2025-11-16 212511](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/f4678ded3f5d700b48ed69952ea8e2696ab06d80/19AI307_JAVA(25-26)/Module-02/DAY-1/Screenshot%202025-11-16%20212511.png)
 
 
 ## RESULT:
-Therefore,the program successfully creates two Car objects and assigns values to their attributes.
 
-
+Thus, the Java program to implement a Class and Object using a Person class was successfully executed and verified.
 
