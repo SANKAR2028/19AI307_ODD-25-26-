@@ -27,8 +27,8 @@ To write a Java program that demonstrates multithreading by creating a user-defi
  ```
 /*
 Program to implement a Thread Priority Concept using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
@@ -58,6 +58,7 @@ public class MyThread extends Thread {
 
 ## RESULT:
 Therefore the program successfully creates a separate thread by extending Thread and executes the overridden run() method.
+
 
 
 
