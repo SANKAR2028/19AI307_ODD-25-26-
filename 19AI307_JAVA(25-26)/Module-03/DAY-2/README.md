@@ -1,102 +1,98 @@
 # Ex.No:3(b) POLYMORPHISM
 
 ## QUESTION:
-Write a Java program to create a class Vehicle with a method called speedUp(). Create two subclasses Car and Bicycle. Override the speedUp() method in each subclass to increase the vehicle's speed differently.
+
+a# Ex.No:3(b) POLYMORPHISM
+
+
+## QUESTION:
+Write a Java program using method overriding. Create a superclass Bank with a method getInterestRate() returning 0. Create subclasses SBI, ICICI, and HDFC that override the method.
 
 ## AIM:
-To create a Java program demonstrating method overriding by defining a base class Vehicle with a speedUp() method and overriding it in subclasses Car and Bicycle to increase speed differently.
+To write a Java program demonstrating runtime polymorphism using method overriding, where subclasses override a method of the superclass to provide specific implementation.
 
 ## ALGORITHM :
-1. Create a parent class Vehicle with an integer variable speed and a method speedUp(int increment) that increases speed normally.
-
-2. Create a subclass Car that overrides speedUp() to increase speed by double the increment.
-
-3. Create a subclass Bicycle that overrides speedUp() to increase speed normally (same as parent but customized message).
-
-4. Read vehicle type and increment value from user.
-
-5. Based on the type, create an object of Car, Bicycle, or Vehicle.
-
-6. Call the speedUp(increment) method to show polymorphic behavior.
-
-
-
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Create a superclass Bank with a method getInterestRate() returning 0.
+4. Create subclasses SBI, ICICI, and HDFC that override the method to return different interest rates.
+5. In the main() method, accept bank name at runtime.
+6. Create an object of the appropriate subclass based on the input.
+7. Call the overridden method using a reference of type Bank.
+8. Display the interest rate.
+9. End the program.
 
 ## PROGRAM:
  ```
 /*
 Program to implement a Polymorphism using Java
-Developed by: MUKESH R
-RegisterNumber:  212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
 ## SOURCE CODE:
 ```
-import java.util.Scanner;
-
-// Parent class
-class Vehicle {
-    int speed = 0;
-
-    void speedUp(int increment) {
-        speed += increment;
-        System.out.println("Vehicle speed increased to: " + speed + " km/h");
+import java.util.*;
+class Bank {
+    double getInterestRate() {
+        return 0;
     }
 }
 
-
-class Car extends Vehicle {
+class SBI extends Bank {
     @Override
-    void speedUp(int increment) {
-        speed += increment * 2;
-        System.out.println("Car speed increased to: " + speed + " km/h");
+    double getInterestRate() {
+        return 6.5;
     }
 }
 
-
-class Bicycle extends Vehicle {
+class ICICI extends Bank {
     @Override
-    void speedUp(int increment) {
-        speed += increment;
-        System.out.println("Bicycle speed increased to: " + speed + " km/h");
+    double getInterestRate() {
+        return 7.0;
     }
 }
 
+class HDFC extends Bank {
+    @Override
+    double getInterestRate() {
+        return 7.5;
+    }
+}
 
-public class TestVehicles {
+public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String type = sc.nextLine().toLowerCase();
-        int increment = sc.nextInt();
-
-        Vehicle vehicle;
-        if (type.equals("car")) {
-            vehicle = new Car();
-        } else if (type.equals("bicycle")) {
-            vehicle = new Bicycle();
+        String bankName = sc.nextLine().trim();
+        Bank bank;
+        if (bankName.equalsIgnoreCase("SBI")) {
+            bank = new SBI();
+            System.out.println("SBI Rate: " + bank.getInterestRate() + "%");
+        } else if (bankName.equalsIgnoreCase("ICICI")) {
+            bank = new ICICI();
+            System.out.println("ICICI Rate: " + bank.getInterestRate() + "%");
+        } else if (bankName.equalsIgnoreCase("HDFC")) {
+            bank = new HDFC();
+            System.out.println("HDFC Rate: " + bank.getInterestRate() + "%");
         } else {
-            vehicle = new Vehicle();
+            System.out.println("Invalid bank name.");
         }
-
-        vehicle.speedUp(increment);
     }
 }
 ```
-
 
 
 
 
 
 ## OUTPUT:
-<img width="921" height="437" alt="image" src="https://github.com/user-attachments/assets/5c317382-efe2-4ec9-a2cf-67b2d4db68b4" />
 
+![java32](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/508d76d2dc9f661dc9ddb5bb22d00b081114519e/19AI307_JAVA(25-26)/Module-03/DAY-2/java32.png)
 
 
 ## RESULT:
-Therefore the  program successfully demonstrates method overriding by applying different speed increase behaviors for car and bicycle.
 
-
+Thus, the Java program demonstrating Polymorphism using Method Overriding was successfully executed.
 
 
