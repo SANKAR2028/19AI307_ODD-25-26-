@@ -33,19 +33,17 @@ To develop a Java program that uses the Factory Pattern to generate different ty
 
 
 
-
-
 ## PROGRAM:
  ```
 /*
 Program to implement a Abstract Factory Pattern using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
 ## SOURCE CODE:
-```
+```java
 import java.util.Scanner;
 
 interface Notification {
@@ -97,15 +95,11 @@ public class Main {
 ```
 
 
-
-
-
 ## OUTPUT:
+
 <img width="943" height="423" alt="image" src="https://github.com/user-attachments/assets/4bf885fa-c016-47dd-bfe0-edf37e8a39e5" />
 
 
 ## RESULT:
+
 Therefore the program successfully creates and sends the appropriate notification type using the Factory Pattern.
-
-
-
