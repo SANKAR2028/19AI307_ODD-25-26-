@@ -3,22 +3,19 @@
 ## QUESTION:
 Write a method int cube(int x) that calls a method int square(int x) internally to calculate the cube as x * square(x).
 
+
+
 ## AIM:
-To write a Java program that defines a method cube(int x) which internally calls the method square(int x) to compute the cube of a number.
+To write a Java program that demonstrates calling one method from another method to compute the cube of a number.
 
 ## ALGORITHM :
-1. Define a class demo with two methods:
-
-     square(int n) → returns n * n.
-     cube(int n) → returns n * square(n) by calling the square() method internally.
-
-2. In the main class, read an integer input from the user.
-
-3. Create an object of the demo class.
-
-4. Call the cube() method using the object and print the result.
-
-5. End the program.
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Create a method square(int x) that returns the square of x.
+4. Create a method cube(int x) that calls square(x) and returns x * square(x).
+5. In the main method, read an integer from the user.
+6. Call the cube() method and display the result.
+7. Stop the program.
 
 
 
@@ -28,46 +25,42 @@ To write a Java program that defines a method cube(int x) which internally calls
  ```
 /*
 Program to implement a Methods using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
 ## SOURCE CODE:
 ```
 import java.util.*;
-class demo
+public class Main
 {
-    public int square(int n)
+    static int square(int x)
     {
-        return n*n;
+        return x*x;
     }
-    public int cube(int n)
+    static int cube(int x)
     {
-        return n*square(n);
+        return x*square(x);
     }
-    
-}
-public class main
-{
-    public static void main(String[] args)
+    public static void main(String args[])
     {
         Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        demo d=new demo();
-        System.out.println(d.cube(n));
+        int num=sc.nextInt();
+        int result=cube(num);
+        System.out.println(result);
     }
 }
 ```
 
 
-## OUTPUT:
-<img width="392" height="243" alt="image" src="https://github.com/user-attachments/assets/aa929a40-c871-4a15-8d09-12604778a14b" />
 
+
+## OUTPUT:
+![java22](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/17d1b46f75f555eafc990d99c8d9e5297e25ca2f/19AI307_JAVA(25-26)/Module-02/DAY-2/java22.png)
 
 
 ## RESULT:
-Therefore the program successfully computes the cube of a number by internally using the square method.
-
+Thus, the Java program to calculate the cube of a number by calling the square method internally was successfully implemented and executed.
 
 
