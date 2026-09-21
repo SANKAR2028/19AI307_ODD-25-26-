@@ -1,87 +1,75 @@
+
 # Ex.No:2(D) VARIABLE SCOPE AND CONSTRUCTOR
 
 ## QUESTION:
-Write a class that uses a constructor to initialize variables and overrides toString() method.
+Create a Java class Book with instance variables title and author.
 
 ## AIM:
-To write a Java program that initializes object variables using a constructor and overrides the toString() method to display object details in a readable format.
+To write a Java program to demonstrate variable scope and the use of a constructor to initialize instance variables.
 
 ## ALGORITHM :
-
-1. Define a class Student with two instance variables:
-
-     String name
-
-     int age
-
-2. Create a parameterized constructor to initialize these variables.
-
-3. Override the toString() method to return the student details in a formatted string.
-
-4. In the main() method:
-
-    - Read the name and age from the user.
-
-    - Create a Student object using the constructor.
-
-5. Print the object, which automatically calls the overridden toString() method.
-
-6. End the program.
-
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Create a class named Book with instance variables title and author.
+4. Create a parameterized constructor to initialize these variables.
+5. In the main() method, create an object of the Book class and pass values through the constructor.
+6. Display the values.
+7. End the program.
 
 
 ## PROGRAM:
  ```
 /*
 Program to implement a Variable scope and Constructor using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
 ## SOURCE CODE:
-
 ```
 import java.util.Scanner;
 
-class Student {
-    String name;
-    int age;
-
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
+class Book 
+{
+    String title;
+    String author;
+    Book(String t, String a)
+    {
+        title = t;
+        author = a;
     }
 
-    @Override
-    public String toString() {
-        return "Student{name='" + name + "', age=" + age + "}";
+    void display() {
+        System.out.println("Book Title: " + title);
+        System.out.println("Author: " + author);
     }
 }
 
-public class StudentDemo {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-        int age = scanner.nextInt();
+class prog {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        String title = sc.nextLine();   
+        String author = sc.nextLine(); 
 
-        Student student = new Student(name, age);
-        System.out.println(student.toString());
+        Book b = new Book(title, author);
+        b.display();
+
+        sc.close();
     }
 }
 ```
+
 
 
 
 
 ## OUTPUT:
-<img width="896" height="395" alt="image" src="https://github.com/user-attachments/assets/0b280b01-a09a-4749-b733-41411f01b00a" />
 
-
-
+![java24](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/deb86e008500c33f568047cc6e92298e774f4c47/19AI307_JAVA(25-26)/Module-02/DAY-4/java24.png)
 
 ## RESULT:
-Therefore the program successfully creates a student object using the constructor.
 
-
-
+Thus, the Java program to demonstrate variable scope and constructor was executed successfully.
