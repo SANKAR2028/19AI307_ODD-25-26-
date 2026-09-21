@@ -27,20 +27,17 @@ To write a Java program demonstrating aggregation, where a Department contains m
 9. Call showProfessors() to display the results.
 
 
-
-
-
 ## PROGRAM:
  ```
 /*
 Program to implement a Composition Concepts in Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
 ## SOURCE CODE:
-```
+```java
 import java.util.*;
 
 class Professor {
@@ -107,11 +104,11 @@ public class Main {
 
 
 ## OUTPUT:
+
 <img width="828" height="292" alt="image" src="https://github.com/user-attachments/assets/4e69935f-7724-441c-b2cb-952384232733" />
 
-
-
 ## RESULT:
+
 Therefore the program successfully demonstrates aggregation by associating independent Professor objects with a Department.
 
 
