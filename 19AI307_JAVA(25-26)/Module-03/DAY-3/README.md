@@ -1,122 +1,98 @@
+
 # Ex.No:3(C) ABSTRACTION
 
 ## QUESTION:
-In a secret intelligence facility, encrypted messages are stored as arrays of characters. Each type of agent has a different way to decode these messages. Define an abstract class Decoder with a method decodeMessage(String[] fragments).
-There are two types of agents:
+A group of researchers receives mysterious numerical sequences believed to be sent by intelligent alien life. To decode them, scientists have built intelligent SignalAgents that follow abstract processing rules. Each agent listens to the numbers differently.
 
-   AlphaAgent: Extracts a meaningful string by rearranging the fragments based on even indices first, then odd indices, and then reversing the final result.
-
-   BetaAgent: Picks all fragments that start and end with the same letter, joins them with -, and removes all vowels from the resulting string.
-
+Your task is to create a system where a base abstract class SignalAgent declares:
 
 ## AIM:
-To create an abstract class Decoder with an abstract method decodeMessage(), and implement two subclasses, AlphaAgent and BetaAgent, each with a unique decoding technique for encrypted message fragments.
+To implement Abstraction in Java by defining an abstract class with abstract methods and providing different implementations in derived subclasses.
 
 ## ALGORITHM :
-1. Create an abstract class Decoder containing an abstract method decodeMessage(String[] fragments).
-
-2. Create subclass AlphaAgent implementing decodeMessage() by collecting fragments at even indices,then collecting fragments at odd indices,reversing the combined list.
-
-3. Joining all fragments into one decoded string.
-
-4. Create subclass BetaAgent implementing decodeMessage() by selecting fragments whose first and last characters match (case-insensitive).
-
-5. Joining selected fragments using -.
-
-6. Removing all vowels from the final combined string.
-
-7. Read number of fragments and store them in a string array.
-
-8. Read agent type (1 = AlphaAgent, 2 = BetaAgent).
-
-9. Create the corresponding agent object.
-
-10. Call decodeMessage() and print the decoded output.
-
-
-
-
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Create an abstract class SignalAgent with an abstract method processNumbers(int[]).
+4. Create subclasses SumAgent and AverageAgent that extend the base class and provide method implementations.
+5. Accept a numerical sequence from the user and store it in an array.
+6. Allow the user to select which type of agent to use for processing.
+7. Display the processed result.
+8. End the program.
 
 ## PROGRAM:
  ```
 /*
 Program to implement a Abstraction using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
 ## SOURCE CODE:
-
 ```
 import java.util.*;
 
-abstract class Decoder {
-    abstract String decodeMessage(String[] fragments);
+abstract class SignalAgent {
+    abstract int decodeSignal(int[] signal);
 }
 
+class PrimeAgent extends SignalAgent {
+    boolean isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
+    }
 
-class AlphaAgent extends Decoder {
     @Override
-    String decodeMessage(String[] fragments) {
-        List<String> ordered = new ArrayList<>();
-        
-        for (int i = 0; i < fragments.length; i += 2) {
-            ordered.add(fragments[i]);
+    int decodeSignal(int[] signal) {
+        int sum = 0;
+        for (int num : signal) {
+            if (isPrime(num))
+                sum += num;
         }
-       
-        for (int i = 1; i < fragments.length; i += 2) {
-            ordered.add(fragments[i]);
-        }
-       
-        Collections.reverse(ordered);
-        
-        StringBuilder result = new StringBuilder();
-        for (String s : ordered) {
-            result.append(s);
-        }
-        return result.toString();
+        return sum;
     }
 }
 
-
-class BetaAgent extends Decoder {
+class MirrorAgent extends SignalAgent {
     @Override
-    String decodeMessage(String[] fragments) {
-        List<String> selected = new ArrayList<>();
-        for (String f : fragments) {
-            if (!f.isEmpty()) {
-                char first = Character.toLowerCase(f.charAt(0));
-                char last = Character.toLowerCase(f.charAt(f.length() - 1));
-                if (first == last) {
-                    selected.add(f);
-                }
+    int decodeSignal(int[] signal) {
+        int n = signal.length;
+        for (int i = 0; i < n / 2; i++) {
+            if (signal[i] != signal[n - 1 - i]) {
+             
+                return -1;
             }
         }
-
-        String joined = String.join("-", selected);
-        return joined.replaceAll("[AEIOUaeiou]", "");
+        return 1;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = Integer.parseInt(sc.nextLine().trim());
-        String[] fragments = new String[n];
-        for (int i = 0; i < n; i++) {
-            fragments[i] = sc.nextLine().trim();
+        int n = sc.nextInt();
+        int[] signal = new int[n];
+        for (int i = 0; i < n; i++)
+            signal[i] = sc.nextInt();
+        int type = sc.nextInt();
+        
+        SignalAgent agent;
+        
+        if (type == 1) {
+            agent = new PrimeAgent();
+            System.out.println(agent.decodeSignal(signal));
+        } else if (type == 2) {
+            agent = new MirrorAgent();
+            int result = agent.decodeSignal(signal);
+            if (result == 1)
+                System.out.println("BALANCED");
+            else
+                System.out.println("BROKEN");
         }
-        int type = Integer.parseInt(sc.nextLine().trim());
-
-        Decoder agent;
-        if (type == 1)
-            agent = new AlphaAgent();
-        else
-            agent = new BetaAgent();
-
-        System.out.println(agent.decodeMessage(fragments));
-        sc.close();
     }
 }
 ```
@@ -126,13 +102,10 @@ public class Main {
 
 
 ## OUTPUT:
-<img width="791" height="586" alt="image" src="https://github.com/user-attachments/assets/8e5ac67e-a125-4db4-b804-52e16025fa7e" />
 
-
+![java33](https://github.com/ABINAYA-27-76/19AI307_ODD-25-26-/blob/838b2936e04f552789e71372bc8cc875126469d1/19AI307_JAVA(25-26)/Module-03/DAY-3/java33.png)
 
 ## RESULT:
-Therefore the program successfully decodes messages using the rules defined for AlphaAgent and BetaAgent.
-
-
+Thus, the Java program demonstrating Abstraction using an abstract class and derived classes was executed successfully.
 
 
