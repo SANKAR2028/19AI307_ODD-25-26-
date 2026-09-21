@@ -1,88 +1,84 @@
 # Ex.No:1(B) CONDITIONAL STATEMENT
 
 ## QUESTION:
-A pirate ship has a code lock that only opens if:
+In a haunted house, lights turn on or off based on the hour of entry:
 
-1)The input code is even, and
+If the hour is even and between 2 and 6 (inclusive), lights flicker.
 
-2)If it is less than 100, say "Weak Code".
+If the hour is odd and between 7 and 11, lights stay off.
 
-3)If it is between 100 and 999, say "Strong Code".
+If the hour is 12, lights turn red.
 
-4)If the code is odd, deny access.
+Otherwise, the house is dark.
+
 
 ## AIM:
-Aim:
-To write a Java program that accepts a code number and determines the security level based on the given conditions:
-- If the code is even and less than 100 → Display "Weak Code"
-- If the code is even and between 100 and 999 → Display "Strong Code"
-- Otherwise → Display "Access Denied"
+To write a Java program that uses conditional statements to determine the state of lights in a haunted house based on the hour of entry.
 
 ## ALGORITHM :
 1. Start the program.
-2. Create a Scanner object to read input from the user.
-3. Read an integer value from the user and store it in variable 'code'.
-4. Check if 'code' is even (code % 2 == 0):
-     a. If 'code' is less than 100:
-          - Print "Weak Code".
-     b. Else if 'code' is between 100 and 999 (inclusive):
-          - Print "Strong Code".
-     c. Else:
-          - Print "Access Denied".
-5. If 'code' is odd:
-     - Print "Access Denied".
-6. End the program.
 
+2. Import the necessary package java.util.*.
 
+3. Create a Scanner object to read the hour input from the user.
 
+4. Read the hour as an integer.
 
+5. Check if the hour is even and between 2 and 6 (inclusive):
 
+6. Display “Lights flicker”.
+
+7. Else if the hour is odd and between 7 and 11:
+
+8. Display “Lights stay off”.
+
+9. Else if the hour is 12:
+
+10. Display “Lights turn red”.
+ 
+11. Display “The house is dark”.
+
+12. End the program.
 
 ## PROGRAM:
  ```
 /*
 Program to implement a conditional statement using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
-## SOURCE CODE:
+## Sourcecode.java:
 ```
-import java.util.Scanner;
-
-public class PirateCodeLock {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int code = sc.nextInt();
-
-        if (code % 2 == 0) {
-            if (code < 100) {
-                System.out.println("Weak Code");
-            } else if (code >= 100 && code <= 999) {
-                System.out.println("Strong Code");
-            }
-            else
-            {
-                System.out.println("Access Denied");
-            }
+import java.util.*;
+public class Demo
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+       if (a >= 2 && a <= 6 && a % 2 == 0) {
+            System.out.println("Lights flicker");
+        } else if (a>= 7 && a <= 11 && a % 2 != 0) {
+            System.out.println("Lights off");
+        } else if (a == 12) {
+            System.out.println("Lights red");
         } else {
-            System.out.println("Access Denied");
+            System.out.println("Dark house");
         }
     }
 }
-
 ```
 
-
 ## OUTPUT:
-<img width="1253" height="395" alt="image" src="https://github.com/user-attachments/assets/4a2d9365-69a5-452d-bc72-f619377d3b5a" />
+<img width="486" height="294" alt="Screenshot 2025-11-14 101547" src="https://github.com/user-attachments/assets/a64529b4-061c-436d-8ea4-55157b6e41b9" />
+
+
+
 
 
 ## RESULT:
-Therefore,the program has been executed successfully.
-
-
-
+Thus, the Java program to implement conditional statements for the haunted house lighting system was successfully executed.
 
 
