@@ -25,8 +25,8 @@ To write a Java program that demonstrates stream chaining by placing a BufferedR
  ```
 /*
 Program to implement a InputStreamReader using Java
-Developed by: MUKESH R
-RegisterNumber: 212223240100
+Developed by: SANKAR S
+RegisterNumber: 212224040291
 */
 ```
 
@@ -60,7 +60,3 @@ public class ChainingStreamsExample {
 
 ## RESULT:
 Therefore the program successfully demonstrates chaining of input streams by reading user data through a BufferedReader wrapped over an InputStreamReader.
-
-
-
-
