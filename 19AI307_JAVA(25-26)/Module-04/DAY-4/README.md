@@ -1,48 +1,40 @@
-# Ex.No:4(D) DESIGN PATTERN -- ABSTRACT FACTORY
+# DESIGN PATTERN — ABSTRACT FACTORY
 
-## QUESTION:
-Create a program that sends different types of notifications: "email", "sms", and "push". Use the Factory Pattern to generate the appropriate notification sender and call its notifyUser() method.
+## QUESTION
 
-## AIM:
-To develop a Java program that uses the Factory Pattern to generate different types of notifications—Email, SMS, and Push—and call the appropriate notifyUser() method based on user input.
+Create a program that sends different types of notifications such as **Email, SMS, and Push** using the **Abstract Factory Pattern**. Use the appropriate factory to create the required notification sender and call its `notifyUser()` method.
 
-## ALGORITHM :
-1. Define a Notification interface with a method notifyUser().
+## AIM
 
-2. Implement three classes EmailNotification, SMSNotification, and PushNotification, each overriding notifyUser() with specific behavior.
+To develop a Java program using the **Abstract Factory Pattern** to create different types of notification senders such as Email, SMS, and Push and send notifications based on the user input.
 
-3. Create a NotificationFactory class containing a method createNotification(String type) that:
+## ALGORITHM
 
-4. Returns an EmailNotification object when type is "email".
+1. Define a `Notification` interface with a method `notifyUser()`.
+2. Implement `EmailNotification`, `SMSNotification`, and `PushNotification` classes.
+3. Each class overrides the `notifyUser()` method with its specific notification message.
+4. Define an abstract `NotificationFactory` interface with a method to create notification objects.
+5. Create separate factory classes for Email, SMS, and Push notifications.
+6. Each factory creates the corresponding notification object.
+7. Read the notification type from the user.
+8. Select the appropriate factory based on the input.
+9. Use the selected factory to create the notification object.
+10. Call the `notifyUser()` method.
+11. Display an error message if the notification type is invalid.
+12. Continue reading input until `exit` is entered.
+13. Close the scanner after exiting the loop.
 
-5. Returns an SMSNotification object when type is "sms".
+## PROGRAM
 
-6. Returns a PushNotification object when type is "push".
-
-7. Returns null for invalid types.
-
-8. Create a NotificationFactory object.
-
-9. Read user input in a loop until "exit" is entered.
-
-10. Use the factory to create the correct notification object.
-
-11. If the object is valid, call notifyUser(); otherwise print an error message.
-
-12. Close the scanner after exiting the loop.
-
-
-
-## PROGRAM:
- ```
+```text
 /*
-Program to implement a Abstract Factory Pattern using Java
+Program to implement Abstract Factory Pattern using Java
 Developed by: SANKAR S
 RegisterNumber: 212224040291
 */
 ```
 
-## SOURCE CODE:
+
 ```java
 import java.util.Scanner;
 
@@ -68,31 +60,65 @@ class PushNotification implements Notification {
     }
 }
 
-class NotificationFactory {
-    public Notification createNotification(String type) {
-        if (type == null) return null;
-        if (type.equalsIgnoreCase("email")) return new EmailNotification();
-        else if (type.equalsIgnoreCase("sms")) return new SMSNotification();
-        else if (type.equalsIgnoreCase("push")) return new PushNotification();
-        return null;
+interface NotificationFactory {
+    Notification createNotification();
+}
+
+class EmailFactory implements NotificationFactory {
+    public Notification createNotification() {
+        return new EmailNotification();
+    }
+}
+
+class SMSFactory implements NotificationFactory {
+    public Notification createNotification() {
+        return new SMSNotification();
+    }
+}
+
+class PushFactory implements NotificationFactory {
+    public Notification createNotification() {
+        return new PushNotification();
     }
 }
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        NotificationFactory factory = new NotificationFactory();
+
         while (true) {
             String input = sc.nextLine();
-            if (input.equalsIgnoreCase("exit")) break;
-            Notification n = factory.createNotification(input);
-            if (n != null) n.notifyUser();
-            else System.out.println("Invalid notification type: " + input);
+
+            if (input.equalsIgnoreCase("exit")) {
+                break;
+            }
+
+            NotificationFactory factory = null;
+
+            if (input.equalsIgnoreCase("email")) {
+                factory = new EmailFactory();
+            }
+            else if (input.equalsIgnoreCase("sms")) {
+                factory = new SMSFactory();
+            }
+            else if (input.equalsIgnoreCase("push")) {
+                factory = new PushFactory();
+            }
+            else {
+                System.out.println("Invalid notification type: " + input);
+                continue;
+            }
+
+            Notification notification = factory.createNotification();
+            notification.notifyUser();
         }
+
         sc.close();
     }
 }
 ```
+
 
 
 ## OUTPUT:
